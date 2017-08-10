@@ -2,7 +2,7 @@
 #include <WiFi.h>             // WiFi-library needed by Blynk
 #include <WiFiClient.h>
 #include <BlynkSimpleEsp32.h> // Include Blynk library
-#include "Credentials.h"      // Keep WiFi and Blynk credentials in a separate file
+#include "credentials.h"      // Keep WiFi and Blynk credentials in a separate file
 
 
 #define BEEP_PIN 17
