@@ -1,16 +1,16 @@
 #include <Arduino.h>          // Arduino basic stuff
-#include <WiFi.h>             // WiFi-library needed by Blynk
+#include <WiFi.h>             // WiFi-library needed for Blynk
 #include <WiFiClient.h>
 #include <BlynkSimpleEsp32.h> // Include Blynk library
 #include "credentials.h"      // Keep WiFi and Blynk credentials in a separate file
 
-
-#define BEEP_PIN 17
-
 //
+// BEEP/BUZZER
 // Called when the value of V1 is written to the Blynk server
-// V1 is connected to a button. When the button is pressed, the V1=1
+// V1 is connected to a button in the GUI. When the button is pressed, the V1=1
 // and when it is released V1=0
+//
+#define BEEP_PIN 17
 BLYNK_WRITE(V1)
 {
   int pinValue = param.asInt();
@@ -44,7 +44,6 @@ BlynkTimer timer;
 void timerEvent()
 {
   float temperature = dht.readTemperature();
-  float humidity = dht.readHumidity();
   if (!isnan(temperature))
   {
     Serial.println(temperature);
